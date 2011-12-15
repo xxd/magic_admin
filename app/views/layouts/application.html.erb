@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>略晓后台管理</title>
+  <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+  <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+</head>
+<body>
+
+<%= yield %>
+<div id="user_nav">
+<% if signed_in?(:user) %>
+	<%= puts "abc" %>
+	Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_admin_user_session_path, :method => :delete %>
+<% end %>
+</div>
+
+</body>
+</html>
