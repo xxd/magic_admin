@@ -1,10 +1,14 @@
-<h1>Listing questions</h1>
+<h1>问题列表</h1>
 
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>问题</th>
+    <th>是否免费</th>
+    <th>截至日期</th>
+    <th>投票数</th>
+    <th>答案数</th>
+    <th>评论数</th>
+    <th>建立日期</th>
   </tr>
 
 <% @questions.each do |question| %>
@@ -16,6 +20,8 @@
 	<td><%= question.answers_count %></td>
 	<td><%= question.comments_count %></td>
 	<td><%= question.created_at %></td>
+	<td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to 'Destroy', question, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
